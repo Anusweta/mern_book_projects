@@ -1,5 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import BannerCard from '../home/BannerCard';
+import { Link } from 'react-router-dom';
 
 
 const Banner = () => {
@@ -43,7 +44,7 @@ const Banner = () => {
                       transition-all ease-in duration-200'>Search</button>
                       <ul>
         {filteredData.map(item => (
-          <li key={item.id}>{item.bookTitle}</li>
+          <li key={item.id}><Link to={`/book/${item._id}`}>{item.bookTitle}</Link></li>
         ))}
       </ul>
 

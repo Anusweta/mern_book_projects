@@ -17,6 +17,7 @@ import Login from "../components/Login";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Logout from "../components/Logout";
 import MyBooks from "../components/myBooks";
+import { Banner } from "flowbite-react";
 
   const router = createBrowserRouter([
     {
@@ -50,6 +51,11 @@ import MyBooks from "../components/myBooks";
         {
           path: "/book/:id/mybooks",
           element: <MyBooks/>,
+          loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`),
+        },
+        {
+          path: "/book/:id/banner",
+          element: <Banner/>,
           loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`),
         }
       ]
