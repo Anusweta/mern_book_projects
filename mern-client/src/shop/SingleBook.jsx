@@ -72,7 +72,7 @@ const SingleBook = () => {
 
     //send data to a database
 
-    fetch("http://localhost:3000/upload-book", {
+    fetch("http://localhost:5000/upload-clientbooks", {
      method:"POST",
      headers: {
          "Content-Type": "application/json"

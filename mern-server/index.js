@@ -35,7 +35,65 @@ async function run() {
 
    //create a collection of documents
    const bookCollections = client.db("BookInventory").collection("books");
+
+   const clientbooksCollections = client.db("BookInventory").collection("clientbooks");
    
+       //find by category
+       app.get('/all-clientbooks', async(req,res) => {
+        let query = {};
+        if(req.query?.category){
+            query = {category: req.query.category}
+        }
+        const result = await clientbooksCollections.find(query).toArray();
+        res.send(result);
+    })
+
+    //to get single bookdata
+    app.get('/clientbook/:id', async(req,res) => {
+      const id = req.params.id;
+      const filter = { _id:new ObjectId(id)};
+      const result = await clientbooksCollections.findOne(filter);
+      res.send(result);
+    })
+
+
+
+   //insert a book to the db: post method
+    app.post('/upload-clientbooks', async(req,res) => {
+      const data = req.body;
+      const result = await clientbooksCollections.insertOne(data);
+      res.send(result);
+    })
+
+    
+    //update a book data : patch or update methods
+    app.patch("/clientbook/:id", async(req,res) => {
+        const id = req.params.id;
+        const updateBookData = req.body;
+        const filter = {_id: new ObjectId(id)};
+        const option = { upsert: true};
+
+        const updateDoc = {
+            $set: {
+                ...updateBookData
+            }
+        }
+
+        //update
+        const result = await clientbooksCollections.updateOne(filter,updateDoc,option);
+        res.send(result);
+    })
+
+    //delete a book data
+    app.delete('/clientbook/:id', async(req,res) => {
+        const id = req.params.id;
+        const filter = {_id: new ObjectId(id)};
+        const result = await clientbooksCollections.deleteOne(filter);
+        res.send(result);
+    })
+
+
+
     //find by category
     app.get('/all-books', async(req,res) => {
         let query = {};
@@ -88,7 +146,7 @@ async function run() {
         const filter = {_id: new ObjectId(id)};
         const result = await bookCollections.deleteOne(filter);
         res.send(result);
-   })
+    })
 
     
 
