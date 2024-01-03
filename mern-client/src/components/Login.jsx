@@ -25,6 +25,7 @@ const Login = () => {
             //signed in
             const user = userCredential.user;
             alert("Login successfully!!")
+            window.location.href = "/home";
             navigate(from, {replace: true})
             //...
         })
@@ -41,6 +42,7 @@ const Login = () => {
         loginwithGoogle().then((result) => {
             const user = result.user;
             alert("Sign up successfully")
+            window.location.href = "/home";
             navigate(from, {replace: true})
         }).catch((error) => {
             const errorCode = error.code;

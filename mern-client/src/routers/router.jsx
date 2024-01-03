@@ -8,7 +8,6 @@ import {
   import Blog from "../components/Blog";
   import SingleBook from "../shop/SingleBook";
   import DashboardLayout from "../dashboard/DashboardLayout";
-  import Dashboard from "../dashboard/Dashboard";
   import UploadBook from "../dashboard/UploadBook";
   import ManageBooks from "../dashboard/ManageBooks";
   import EditBooks from "../dashboard/EditBooks";
@@ -22,12 +21,18 @@ import { Banner } from "flowbite-react";
   const router = createBrowserRouter([
     {
       path: "/",
+      element: <Login/>,  
+  },
+    {
+      path: "/",
       element: <App/>,
       children: [
+       
         {
-            path: "/",
-            element: <Home/>,  
-        },
+          path: "/home",
+          element: <Home/>,  
+      },
+     
         {
             path: "/shop",
             element: <Shop/>,  
@@ -39,10 +44,7 @@ import { Banner } from "flowbite-react";
         {
             path: "/blog",
             element: <Blog/>,  
-        },{
-          path: "/logout",
-          element: <Logout/>,  
-      },
+        },
         {
           path: "/book/:id",
           element: <SingleBook/>,
@@ -61,13 +63,13 @@ import { Banner } from "flowbite-react";
       ]
     },
     {
+      path: "/logout",
+      element: <Logout/>,  
+  },
+    {
       path: "/admin/dashboard",
       element: <DashboardLayout/>,
       children: [
-        {
-          path: "/admin/dashboard",
-          element: <PrivateRoute><Dashboard/></PrivateRoute> 
-        },
         {
           path: "/admin/dashboard/upload",
           element: <UploadBook/>

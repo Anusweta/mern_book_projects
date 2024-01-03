@@ -42,11 +42,11 @@ const Banner = () => {
                     
                      <button onClick={handleSearch} className='bg-blue-700 px-6 py-2 text-white font-medium hover:bg-black
                       transition-all ease-in duration-200'>Search</button>
-                      <ul>
-        {filteredData.map(item => (
-          <li key={item.id}><Link to={`/book/${item._id}`}>{item.bookTitle}</Link></li>
-        ))}
-      </ul>
+                      <ul style={{backgroundColor: 'white', width: '55%'}}>
+                        {filteredData.map(item => (
+                        <li key={item.id}><Link to={`/book/${item._id}`}>{item.bookTitle}</Link></li>
+                        ))}
+                    </ul>
 
                 </div>  
                 </div>

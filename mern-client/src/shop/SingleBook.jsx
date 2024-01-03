@@ -96,13 +96,13 @@ const SingleBook = () => {
                <img src={imageURL} alt="" className='rounded md:w-12/14' />
         </div>
 
-        <div className='md:w-2/3 space-x-6 space-y-6'>
+        <div className='md:w-2/3 space-x-6 space-y-6' >
                   <h2 className='text-5xl font-bold my-2 md:w-3/4 leading-snug'>{bookTitle} <br/> <span className='text-blue-700'>{authorName}</span></h2>
                   <h3 className='text-3xl font-bold my-2 md:w-3/4 leading-snug'>{category}</h3>
                   <p className='mb-10 text-lg md:w-5/6 '>{bookDescription}</p>
                 
                  
-                  <form onSubmit={handleBookSubmit}>
+                  <form onSubmit={handleBookSubmit} >
             {/* first row*/}
             <div className='flex gap-8'>
               <div className='lg:w-1/2'>
