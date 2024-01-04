@@ -40,7 +40,7 @@ const Navbar = () => {
         {link: "Home", path:"/home"},
         {link: "myBooks", path:"/mybooks"},
         {link: "Shop", path:"/shop"},
-        {link: "Sell Your Book", path:"/admin/dashboard/upload"},
+        {link: "Sell Your Book", path:"/admin/dashboard"},
         {link: "Blog", path:"/blog"},
         
         
