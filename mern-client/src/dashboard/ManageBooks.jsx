@@ -8,14 +8,14 @@ const ManageBooks = () => {
     const [allBooks, setAllBooks] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/all-books").then(res => res.json()).then(data => setAllBooks(data))
+        fetch("https://mern-backend-qvrj.onrender.com/all-books").then(res => res.json()).then(data => setAllBooks(data))
     },[])
 
 
     //delete books
     const handleDelete = (id) =>{
         console.log(id);
-        fetch(`http://localhost:5000/book/${id}`,{
+        fetch(`https://mern-backend-qvrj.onrender.com/book/${id}`,{
             method:"DELETE",
         }).then(res => res.json()).then(data => {
             alert("Book is deleted Successfully")

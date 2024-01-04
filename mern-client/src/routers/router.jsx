@@ -49,17 +49,17 @@ import { Banner } from "flowbite-react";
         {
           path: "/book/:id",
           element: <SingleBook/>,
-          loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`),
+          loader: ({params}) => fetch(`https://mern-backend-qvrj.onrender.com/book/${params.id}`),
         },
         {
           path: "/book/:id/mybooks",
           element: <MyBooks/>,
-          loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`),
+          loader: ({params}) => fetch(`https://mern-backend-qvrj.onrender.com/book/${params.id}`),
         },
         {
           path: "/book/:id/banner",
           element: <Banner/>,
-          loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`),
+          loader: ({params}) => fetch(`https://mern-backend-qvrj.onrender.com/book/${params.id}`),
         }
       ]
     },
@@ -86,7 +86,7 @@ import { Banner } from "flowbite-react";
         {
           path: "/admin/dashboard/edit-books/:id",
           element: <EditBooks/>,
-          loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+          loader: ({params}) => fetch(`https://mern-backend-qvrj.onrender.com/book/${params.id}`)
         }
         
       ]

@@ -6,7 +6,7 @@ const OtherBooks = () => {
 
 
     useEffect ( () => {
-        fetch("http://localhost:5000/all-books").then(res => res.json()).then(data => setBooks(data.slice(0,8)))
+        fetch("https://mern-backend-qvrj.onrender.com/all-books").then(res => res.json()).then(data => setBooks(data.slice(0,8)))
     }, [])
     return(
         <div>

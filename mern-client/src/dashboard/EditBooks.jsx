@@ -55,7 +55,7 @@ const EditBooks = () => {
 
            
            //update book data
-           fetch(`http://localhost:5000/book/${id}`,{
+           fetch(`https://mern-backend-qvrj.onrender.com/book/${id}`,{
             method:"PATCH",
             headers: {
                 "Content-Type": "application/json"

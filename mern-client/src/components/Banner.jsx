@@ -14,7 +14,7 @@ const Banner = () => {
 
     
     useEffect(() => {
-        fetch("http://localhost:5000/all-books").then(res => res.json()).then(data => setData(data))
+        fetch("https://mern-backend-qvrj.onrender.com/all-books").then(res => res.json()).then(data => setData(data))
     },[])
 
 
