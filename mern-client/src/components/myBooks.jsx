@@ -166,7 +166,8 @@ const ReviewForm = ({ bookId, onSubmit }) => {
           placeholder="Write your review..."
         />
       </div>
-      <button type="submit">Submit Review</button>
+      <button type="submit" className='bg-sky-600 px-6 py-2 font-semibold text-white rounded-sm 
+              hover:bg-sky-800'>Share</button>
     </form>
   );
 };
