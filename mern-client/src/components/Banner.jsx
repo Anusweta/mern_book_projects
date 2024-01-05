@@ -19,7 +19,7 @@ const Banner = () => {
 
 
     const  handleSearch = () => {
-        const searchinput = data.filter(item => item.bookTitle.includes(query));
+        const searchinput = data.filter(item => item.bookTitle.toLowerCase().includes(query.toLowerCase()));
         setFilteredData(searchinput);
       };
     

@@ -46,6 +46,7 @@ const handleReviewSubmit = async (bookId, rating, comment) => {
     if (response.ok) {
       console.log('Review submitted successfully!');
       // You might want to update the UI to reflect the new review
+      alert('Review submitted successfully!');
     } else {
       console.error('Failed to submit review');
     }
