@@ -92,7 +92,7 @@ const SingleBook = () => {
         <div>
         <div className='mt-15 px-4 lg:px-24  my-20 flex flex-col md:flex-row justify-between items-center gap-7'>
         <div className='md:w-1/3'>
-               <img src={imageURL} alt="" className='rounded md:w-10/12' />
+               <img src={imageURL} alt="" className='rounded md:w-12/12' />
         </div>
 
         <div className='md:w-2/3 space-x-6 space-y-6' >
