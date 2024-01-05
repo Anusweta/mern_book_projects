@@ -2,10 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Table } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import { Authcontext } from '../contects/AuthProvider';
+import StarRatings from 'react-star-ratings';
 
 const MyBooks = () => {
   const [userBooks, setUserBooks] = useState([]);
   const { user } = useContext(Authcontext);
+
+  
 
   useEffect(() => {
     if (user && user.email) {
@@ -19,6 +22,45 @@ const MyBooks = () => {
         .catch(error => console.error("Error fetching data:", error));
     }
   }, [user?.email]);
+
+
+
+//review
+
+
+const handleReviewSubmit = async (bookId, rating, comment) => {
+  try {
+    const response = await fetch('https://mern-backend-qvrj.onrender.com/upload-clientbooks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        bookId,
+        userId: user?.email || '',
+        rating,
+        comment,
+      }),
+    });
+
+    if (response.ok) {
+      console.log('Review submitted successfully!');
+      // You might want to update the UI to reflect the new review
+    } else {
+      console.error('Failed to submit review');
+    }
+  } catch (error) {
+    console.error('Error submitting review:', error);
+  }
+};
+
+
+
+
+
+
+
+
   // delete books
   const handleDelete = (id) => {
     console.log(id);
@@ -43,10 +85,10 @@ const MyBooks = () => {
         <Table.Head>
           <Table.HeadCell>No.</Table.HeadCell>
           <Table.HeadCell>Image</Table.HeadCell>
-          <Table.HeadCell>Book Name</Table.HeadCell>
+          <Table.HeadCell style={{ textAlign: 'center' }}>Book Name</Table.HeadCell>
           <Table.HeadCell>Author Name</Table.HeadCell>
           <Table.HeadCell>Category</Table.HeadCell>
-          <Table.HeadCell>User</Table.HeadCell>
+          <Table.HeadCell style={{ textAlign: 'center' }}>Reviews</Table.HeadCell>
           <Table.HeadCell>
             <span>Edit or Manage</span>
           </Table.HeadCell>
@@ -63,16 +105,69 @@ const MyBooks = () => {
               </Table.Cell>
               <Table.Cell>{book.authorName}</Table.Cell>
               <Table.Cell>{book.category}</Table.Cell>
-              <Table.Cell>{book.user}</Table.Cell>
               <Table.Cell>
-                <button onClick={() => handleDelete(book._id)} className='bg-red-600 px-4 py-1 font-semibold text-white rounded-sm 
+              <ReviewForm
+                  bookId={book._id}
+                  onSubmit={(rating, comment) => handleReviewSubmit(book._id, rating, comment)}
+                />
+                              </Table.Cell>
+
+              <Table.Cell>
+                <button onClick={() => handleDelete(book._id)} className='bg-red-600 px-6 py-2 font-semibold text-white rounded-sm 
               hover:bg-sky-600'>Remove</button>
               </Table.Cell>
             </Table.Row>
           </Table.Body>
         ))}
       </Table>
+
+
+      
     </div>
+  );
+};
+
+const ReviewForm = ({ bookId, onSubmit }) => {
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState('');
+
+  const handleRatingChange = (newRating) => {
+    setRating(newRating);
+  };
+
+  const handleCommentChange = (e) => {
+    setComment(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(rating, comment);
+    setRating(0);
+    setComment('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <StarRatings
+          rating={rating}
+          starRatedColor="gold"
+          changeRating={handleRatingChange}
+          numberOfStars={5}
+          name='rating'
+        />
+      </div>
+      <div>
+        <textarea
+          value={comment}
+          onChange={handleCommentChange}
+          rows="4"
+          cols="50"
+          placeholder="Write your review..."
+        />
+      </div>
+      <button type="submit">Submit Review</button>
+    </form>
   );
 };
 
