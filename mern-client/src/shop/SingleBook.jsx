@@ -14,7 +14,7 @@ const SingleBook = () => {
     
 
     useEffect ( () => {
-        fetch("http://localhost:5000/all-books").then(res => res.json()).then(data => setBooks(data))
+        fetch("https://mern-backend-qvrj.onrender.com/all-books").then(res => res.json()).then(data => setBooks(data))
     }, [])
 
     const bookCategories = [
@@ -92,7 +92,7 @@ const SingleBook = () => {
         <div>
         <div className='mt-15 px-4 lg:px-24  my-20 flex flex-col md:flex-row justify-between items-center gap-7'>
         <div className='md:w-1/3'>
-               <img src={imageURL} alt="" className='rounded md:w-12/14' />
+               <img src={imageURL} alt="" className='rounded md:w-10/12' />
         </div>
 
         <div className='md:w-2/3 space-x-6 space-y-6' >
@@ -103,7 +103,7 @@ const SingleBook = () => {
                  
                   <form onSubmit={handleBookSubmit} >
             {/* first row*/}
-            <div className='flex gap-8'>
+            <div className='flex gap-8' style={{display:'none'}}>
               <div className='lg:w-1/2'>
                   <div className="mb-2 block">
                       <Label htmlFor="bookTitle" value="Book Title" />
@@ -113,7 +113,7 @@ const SingleBook = () => {
 
 
              {/* authorName */}
-             <div className='lg:w-1/2'>
+             <div className='lg:w-1/2'style={{display:'none'}}>
                   <div className="mb-2 block">
                      <Label htmlFor="authorName" value="Author Name" />
                   </div>
@@ -123,7 +123,7 @@ const SingleBook = () => {
 
 
             {/* 2nd row*/}
-             <div className='flex gap-8'>
+             <div className='flex gap-8' style={{display:'none'}}>
               <div className='lg:w-1/2'>
                   <div className="mb-2 block">
                      <Label htmlFor="imageURL" value="Book Image URL" />
@@ -133,7 +133,7 @@ const SingleBook = () => {
 
 
              {/* category */}
-             <div className='lg:w-1/2'>
+             <div className='lg:w-1/2' style={{display:'none'}}>
              <div className="mb-2 block">
                      <Label htmlFor="inputState" value="Book Category" />
                   </div>
@@ -143,8 +143,8 @@ const SingleBook = () => {
 
 
             {/* bookDescription*/}
-             <div>
-                <div className="mb-2 block">
+             <div style={{display:'none'}}>
+                <div className="mb-2 block" >
                     <Label htmlFor="bookDescription" value="Book Description" />
                 </div>
                 <TextInput id="bookDescription" name="bookDescription" value={bookDescription} required/>
@@ -153,7 +153,7 @@ const SingleBook = () => {
 
 
             {/* bookPDFURL*/}
-              <div>
+              <div style={{display:'none'}}>
                 <div className="mb-2 block">
                     <Label htmlFor="bookPDFURL" value="Book PDF URL" />
               </div>
@@ -161,14 +161,14 @@ const SingleBook = () => {
               </div>
           
                {/* price */}
-              <div>
+              <div style={{display:'none'}}>
                 <div className="mb-2 block">
                     <Label htmlFor="price" value="price" />
               </div>
                     <TextInput id="price" type="number" name="price" value={price} required />
               </div>
 
-              <div>
+              <div style={{display:'none'}}>
                 <div className="mb-2 block">
                 
               </div>
