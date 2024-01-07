@@ -13,7 +13,7 @@ const Logout = () => {
            logOut().then(() => {
             // Sigh-out successfully
             alert('sign-out successfully!!!')
-            navigate(from, {replace: true})
+            navigate('/')
            }).catch((error) => {
             // An error happened
            });

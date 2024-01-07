@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from 'react-router-dom'
+import { Link, useLoaderData, useNavigate } from 'react-router-dom'
 import React, {useContext, useEffect, useState } from 'react'
 import BookCards from '../components/BookCards'
 import { Card } from 'flowbite-react';
@@ -11,6 +11,7 @@ const SingleBook = () => {
     const {_id, bookTitle, imageURL,authorName, bookDescription, category, bookPDFURL, price } = useLoaderData();
     const [books,setBooks] = useState([]);
     const {user} = useContext(Authcontext);
+    const navigate = useNavigate();
     
 
     useEffect ( () => {
@@ -80,7 +81,7 @@ const SingleBook = () => {
     }).then(res => res.json()).then(data => {
        //console.log(data)
        alert("Book uploaded successfully!!!")
-       window.location.href = "/myBooks";
+       navigate('/mybooks')
        form.reset();
     })
 }

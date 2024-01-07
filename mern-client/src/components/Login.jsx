@@ -42,8 +42,7 @@ const Login = () => {
         loginwithGoogle().then((result) => {
             const user = result.user;
             alert("Sign up successfully")
-            window.location.href = "/home";
-            navigate(from, {replace: true})
+            navigate('/home')
         }).catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
