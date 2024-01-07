@@ -91,7 +91,7 @@ const handleReviewSubmit = async (bookId, rating, comment) => {
           <Table.HeadCell>Category</Table.HeadCell>
           <Table.HeadCell style={{ textAlign: 'center' }}>Reviews</Table.HeadCell>
           <Table.HeadCell>
-            <span>Edit or Manage</span>
+            <span>Remove</span>
           </Table.HeadCell>
         </Table.Head>
         {userBooks.map((book, index) => (
@@ -112,6 +112,8 @@ const handleReviewSubmit = async (bookId, rating, comment) => {
                   onSubmit={(rating, comment) => handleReviewSubmit(book._id, rating, comment)}
                 />
                               </Table.Cell>
+                             
+
 
               <Table.Cell>
                 <button onClick={() => handleDelete(book._id)} className='bg-red-600 px-6 py-2 font-semibold text-white rounded-sm 
@@ -156,6 +158,7 @@ const ReviewForm = ({ bookId, onSubmit }) => {
           changeRating={handleRatingChange}
           numberOfStars={5}
           name='rating'
+          required
         />
       </div>
       <div>
@@ -165,10 +168,11 @@ const ReviewForm = ({ bookId, onSubmit }) => {
           rows="4"
           cols="50"
           placeholder="Write your review..."
+          required
         />
       </div>
       <button type="submit" className='bg-sky-600 px-6 py-2 font-semibold text-white rounded-sm 
-              hover:bg-sky-800'>Share</button>
+              hover:bg-sky-800'>Share your reviews</button>
     </form>
   );
 };
