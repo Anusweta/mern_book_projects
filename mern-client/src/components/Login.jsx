@@ -25,8 +25,8 @@ const Login = () => {
             //signed in
             const user = userCredential.user;
             alert("Login successfully!!")
-            window.location.href = "/home";
-            navigate(from, {replace: true})
+    
+            navigate('/home')
             //...
         })
         .catch((error) => {
