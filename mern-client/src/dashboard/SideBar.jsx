@@ -4,6 +4,7 @@ import { BiBuoy } from 'react-icons/bi';
 import { HiArrowSmRight, HiChartPie, HiInbox, HiOutlineCloudUpload, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
 import { useContext } from 'react';
 import { Authcontext } from '../contects/AuthProvider'
+import { Link } from 'react-router-dom';
 
 
 const SideBar = () => {
@@ -13,25 +14,25 @@ const SideBar = () => {
            <Sidebar.Logo href="" img={user?.photoURL} imgAlt="Flowbite logo" className='w-16 h-16'>
         <p>
           {
-            user?.displayName ||"Demo User"
+            user?.email ||"Demo User"
           }
         </p>
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Item href="/admin/dashboard" icon={HiChartPie}>
+          <Sidebar.Item as={Link} to="/admin/dashboard" icon={HiChartPie}>
             Dashboard
           </Sidebar.Item>
-          <Sidebar.Item href="/admin/dashboard/upload" icon={HiOutlineCloudUpload}>
+          <Sidebar.Item as={Link} to="/admin/dashboard/upload" icon={HiOutlineCloudUpload}>
             Upload Book
           </Sidebar.Item>
-          <Sidebar.Item href="/admin/dashboard/manage" icon={HiInbox}>
+          <Sidebar.Item as={Link} to="/admin/dashboard/manage" icon={HiInbox}>
             Manage Books
           </Sidebar.Item>
-          <Sidebar.Item href="/login" icon={HiArrowSmRight}>
+          <Sidebar.Item as={Link} to="/login" icon={HiArrowSmRight}>
             Sign In
           </Sidebar.Item>
-          <Sidebar.Item href="/logout" icon={HiTable}>
+          <Sidebar.Item as={Link} to="/logout" icon={HiTable}>
             Log Out
           </Sidebar.Item>
         </Sidebar.ItemGroup>
