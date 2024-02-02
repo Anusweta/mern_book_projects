@@ -73,7 +73,7 @@ import { Banner } from "flowbite-react";
       children: [
         {
           path: "/admin/dashboard",
-          element: <PrivateRoute><Dashboard/></PrivateRoute> 
+          element: <Dashboard/> 
         },
         {
           path: "/admin/dashboard/upload",

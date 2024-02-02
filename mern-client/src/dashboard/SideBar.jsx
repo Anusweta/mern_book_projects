@@ -20,9 +20,6 @@ const SideBar = () => {
       </Sidebar.Logo>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
-          <Sidebar.Item as={Link} to="/admin/dashboard" icon={HiChartPie}>
-            Dashboard
-          </Sidebar.Item>
           <Sidebar.Item as={Link} to="/admin/dashboard/upload" icon={HiOutlineCloudUpload}>
             Upload Book
           </Sidebar.Item>
