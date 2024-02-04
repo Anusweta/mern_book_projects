@@ -14,7 +14,7 @@
   }
   
   .banner .swiper-slide:nth-child(1n) {
-    background-image: url('https://drive.google.com/file/d/1T4sEtDIPo9cPK6JhStFcX99qo3P8PsGJ/view?usp=sharing')
+    background-image: url('/Book1.jpeg')
   }
   
   .banner .swiper-slide:nth-child(2n) {
