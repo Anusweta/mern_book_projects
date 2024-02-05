@@ -18,19 +18,19 @@
   }
   
   .banner .swiper-slide:nth-child(2n) {
-    background-image: url('https://drive.google.com/file/d/1T4sEtDIPo9cPK6JhStFcX99qo3P8PsGJ/view')
+    background-image: url('/Book2.jpeg')
   }
   
   .banner .swiper-slide:nth-child(3n) {
-    background-image: url('https://drive.google.com/file/d/1T4sEtDIPo9cPK6JhStFcX99qo3P8PsGJ/view')
+    background-image: url('/Book3.jpeg')
   }
   
   .banner .swiper-slide:nth-child(4n) {
-    background-image: url('https://drive.google.com/file/d/1T4sEtDIPo9cPK6JhStFcX99qo3P8PsGJ/view')
+    background-image: url('/Book4.jpeg')
   }
   
   .banner .swiper-slide:nth-child(5n) {
-    background-image: url('https://drive.google.com/file/d/1T4sEtDIPo9cPK6JhStFcX99qo3P8PsGJ/view')
+    background-image: url('/Book5.jpg')
   }
   
   
